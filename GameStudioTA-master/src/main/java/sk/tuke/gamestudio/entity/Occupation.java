@@ -1,22 +1,23 @@
 package sk.tuke.gamestudio.entity;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
+@Entity
 public class Occupation implements Serializable {
-    // ziak, student, zamestnanec, zivnostnik, nezamestnany, dochodca, invalid
-
     @Id
     @GeneratedValue
     private long ident;
-
     @Column(nullable = false, length = 32, unique = true)
     private String occupation;
+    @OneToMany(mappedBy = "ident")
+    private List<Player> players;
 
+    // ziak, student, zamestnanec, zivnostnik, nezamestnany, dochodca, invalid
     public Occupation() {
     }
+
 
     public Occupation(String occupation) {
         this.occupation = occupation;

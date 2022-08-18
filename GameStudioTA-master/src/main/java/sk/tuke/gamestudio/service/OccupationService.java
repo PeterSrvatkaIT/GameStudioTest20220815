@@ -11,4 +11,6 @@ public interface OccupationService {
     List<Occupation> getOccupation(String game);
 
     public void reset();
+
+    List<Occupation> getOccupations();
 }

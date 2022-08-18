@@ -1,10 +1,8 @@
 package sk.tuke.gamestudio.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Country implements Serializable {
@@ -15,6 +13,9 @@ public class Country implements Serializable {
 
     @Column(nullable = false, length = 128, unique = true)
     private String country;
+
+    @OneToMany(mappedBy = "ident")
+    private List<Player> players;
 
     public Country() {
     }

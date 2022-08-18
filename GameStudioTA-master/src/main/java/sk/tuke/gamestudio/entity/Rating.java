@@ -33,14 +33,6 @@ public class Rating {
         this.ratedOn = ratedOn;
     }
 
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
-
-    public void setRatedOn(Date ratedOn) {
-        this.ratedOn = ratedOn;
-    }
-
     @Override
     public String toString() {
         return "Rating{" +
@@ -50,5 +42,37 @@ public class Rating {
                 ", rating=" + rating +
                 ", ratedOn=" + ratedOn +
                 '}';
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getGame() {
+        return game;
+    }
+
+    public void setGame(String game) {
+        this.game = game;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public Date getRatedOn() {
+        return ratedOn;
+    }
+
+    public void setRatedOn(Date ratedOn) {
+        this.ratedOn = ratedOn;
     }
 }

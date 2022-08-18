@@ -27,6 +27,11 @@ public class OccupationServiceJPA implements OccupationService {
     public void reset() {
         entityManager.createNativeQuery("DELETE FROM occupation").executeUpdate();
     }
+
+    @Override
+    public List<Occupation> getOccupations() {
+        return entityManager.createQuery("select o from Occupation o").getResultList();
+    }
 }
 
 

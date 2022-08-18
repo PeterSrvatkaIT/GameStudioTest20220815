@@ -3,7 +3,7 @@ package sk.tuke.gamestudio.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(uniqueConstraints = {@UniqueConstraint(name = "UniqueUserNameAndFullName", columnNames = {"userName", "fullName"})})
+@Table(uniqueConstraints = {@UniqueConstraint(name = "UniqueUsernameAndFullname", columnNames = {"userName", "fullName"})})
 public class Player {
 
     @Id
@@ -16,15 +16,15 @@ public class Player {
     @Column(nullable = false, length = 128)
     private String fullName;
 
-    @Column(columnDefinition = "INT CHECK(selfEvaluation BETWEEN 1 AND 10) NOT NULL")
+    @Column(columnDefinition = "INT CHECK(player.self_evaluation BETWEEN 1 AND 10) NOT NULL")
     private int selfEvaluation;
 
     @ManyToOne
-    @JoinColumn(name = "Country.ident")
+    @JoinColumn(name = "Country.country", nullable = false)
     private Country country;
 
     @ManyToOne
-    @JoinColumn(name = "Occupation.ident")
+    @JoinColumn(name = "Occupation.occupation", nullable = false)
     private Occupation occupation;
 
     public Player() {
@@ -38,23 +38,14 @@ public class Player {
         this.occupation = occupation;
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public int getSelfEvaluation() {
-        return selfEvaluation;
-    }
-
-    public Country getCountry() {
-        return country;
-    }
-
-    public Occupation getOccupation() {
-        return occupation;
+    @Override
+    public String toString() {
+        return "Player{" +
+                "userName='" + userName + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", selfEvaluation=" + selfEvaluation +
+                ", country=" + country +
+                ", occupation=" + occupation +
+                '}';
     }
 }
