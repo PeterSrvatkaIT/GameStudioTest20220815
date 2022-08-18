@@ -98,7 +98,7 @@ public class ConsoleUI implements UserInterface {
                 var fieldState = this.field.getState();
 
                 if (fieldState == GameState.FAILED) {
-                    System.out.println("Game over, potato. Your score is " + gameScore + ".");
+                    System.out.println("Game over. Your score is " + gameScore + ".");
                     handleRating(player);
                     handleComment(player);
                     break;
@@ -260,15 +260,7 @@ public class ConsoleUI implements UserInterface {
         int input = Integer.parseInt(Objects.requireNonNull(readLine()));
         return occupationService.getOccupations().get(input);
     }
-//    public String handleName() throws GameStudioException{
-//        String playerName;
-//        do {
-//            System.out.println("Name length expected to be between 1-25 characters.");
-//            System.out.println("What should I call you: ");
-//            playerName = readLine();
-//        } while (Objects.requireNonNull(playerName).length() > 25 || playerName.length() < 1);
-//        return playerName;
-//    }
+
 
     @Override
     public void play() {

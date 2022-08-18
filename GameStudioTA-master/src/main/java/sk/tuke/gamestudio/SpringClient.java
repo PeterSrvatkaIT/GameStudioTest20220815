@@ -18,10 +18,7 @@ public class SpringClient {
         new SpringApplicationBuilder(SpringClient.class).web(WebApplicationType.NONE).run(args);
     }
 
-//    @Bean
-//    public CommandLineRunner runnerJPA(PlaygroundJPA console){
-//        return s -> console.play();
-//    }
+
 
     @Bean
     public CommandLineRunner runner(ConsoleUI console) {

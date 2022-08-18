@@ -4,7 +4,7 @@ import java.io.*;
 
 public class Settings implements Serializable {
     private static final String SETTING_FILE = System.getProperty("user.home") + System.getProperty("file.separator") + "minesweeper.settings";
-    public static Settings BEGINNER = new Settings(9, 9, 10);
+    public static Settings BEGINNER = new Settings(3, 3, 1); // temporary changed from 9-9-10
     public static Settings INTERMEDIATE = new Settings(16, 16, 40);
     public static Settings EXPERT = new Settings(16, 30, 99);
     private int rowCount;
@@ -23,9 +23,9 @@ public class Settings implements Serializable {
                 new FileInputStream(SETTING_FILE))) {
             return (Settings) ois.readObject();
         } catch (IOException e) {
-            System.out.println("Info: nepodarilo sa otvorit settings subor, pouzivam default BEGINNER");
+            System.out.println("unable to open,  default BEGINNER");
         } catch (ClassNotFoundException e) {
-            System.out.println("Info: nepodarilo sa precitat settings, pouzivam default BEGINNER");
+            System.out.println("unable to read settings, default BEGINNER");
         }
         return BEGINNER;
     }
@@ -78,7 +78,7 @@ public class Settings implements Serializable {
                     new FileOutputStream(SETTING_FILE));
             oos.writeObject(this);
         } catch (IOException e) {
-            System.out.println("info: nepodarilo sa zapisat settings do objektu");
+            System.out.println("unable to update settings");
         } finally {
             if (oos != null) {
                 try {

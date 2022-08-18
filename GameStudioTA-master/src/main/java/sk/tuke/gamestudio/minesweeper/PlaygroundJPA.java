@@ -17,7 +17,7 @@ public class PlaygroundJPA {
     public void play() {
         System.out.println("Opening JPA playground.");
 
-//        entityManager.persist(new StudyGroup("zakladna"));
+//        entityManager.persist(new StudyGroup(""));
 //        entityManager.persist(new StudyGroup("mierne pokrocila"));
 //        entityManager.persist(new StudyGroup("pokrocila"));
 
